@@ -1,3 +1,4 @@
+/*
 function max(numbers){
 let i = 0;
 maxNum = numbers[0];
@@ -78,4 +79,63 @@ function testFunctionWorks(fn, input, expected) {
     }).length;
     console.log(numPassing + ' out of ' + testResults.length + ' tests passing.');
   })();
+
+  */
+  ///DRILL 2
+
+  function average(numbers) {
+    let sum = 0;
+    numbers.forEach(item => sum += item);
+    let average = sum / numbers.length;
+    console.log(average);
+    return average;
+    
+  }
+  
+  /* From here down, you are not expected to 
+     understand.... for now :)  
+     
+     
+     Nothing to see here!
+     
+  */
+  
+  // tests
+  
+  function testFunctionWorks(fn, input, expected) {
+    if (fn(input) === expected) {
+      console.log('SUCCESS: `' + fn.name + '` works on `[' + input + ']`');
+      return true;
+    } else {
+      console.log(
+        'FAILURE: `' +
+          fn.name +
+          '([' +
+          input +
+          '])` should be ' +
+          expected +
+          ' but was ' +
+          fn(input)
+      );
+      return false;
+    }
+  }
+  
+  (function runTests() {
+    const numList1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const correctAns1 = 5.5;
+    const numList2 = [0, -1, 1];
+    const correctAns2 = 0;
+  
+    const testResults = [
+      testFunctionWorks(average, numList1, correctAns1),
+      testFunctionWorks(average, numList2, correctAns2),
+    ];
+    const numPassing = testResults.filter(function(result) {
+      return result;
+    }).length;
+    console.log(numPassing + ' out of ' + testResults.length + ' tests passing.');
+  })();
+  
+
   
