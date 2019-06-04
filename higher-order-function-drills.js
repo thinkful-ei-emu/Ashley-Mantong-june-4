@@ -18,7 +18,8 @@ function goodbye(){
 
 repeat(hello,5);
 repeat(goodbye,5);
-*/
+
+ //Drill 3
 function filter(arr, fn) {
   let newArray = [];
   for (let i= 0; i < arr.length; i++){
@@ -69,4 +70,14 @@ rocksWarning('Centinela Ave and Olympic Blvd');
 // => The Rocks on the Road hazard has triggered 2 time(s) today!
 
 // Invoke the other hazard creators you instantiated, too
-
+*/
+const movement = [[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]];
+let newMovement = movement.filter(steps => steps[0] >= 0 && steps[1] >= 0);
+console.log(newMovement);
+const totalMovement = newMovement.map(steps => steps[0] + steps[1]);
+console.log(totalMovement);
+totalMovement.forEach(function(totalSteps){
+  let moveCount = 0;
+   
+  console.log(`Movement # ${moveCount}: ${totalSteps} steps`);  
+})
