@@ -1,7 +1,7 @@
 
 
 'use strict';
-/*
+
 function repeat(fn,n){
   for(let i=0; i<n; i++){
     fn();
@@ -70,14 +70,39 @@ rocksWarning('Centinela Ave and Olympic Blvd');
 // => The Rocks on the Road hazard has triggered 2 time(s) today!
 
 // Invoke the other hazard creators you instantiated, too
-*/
+
 const movement = [[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]];
 let newMovement = movement.filter(steps => steps[0] >= 0 && steps[1] >= 0);
-console.log(newMovement);
 const totalMovement = newMovement.map(steps => steps[0] + steps[1]);
-console.log(totalMovement);
+let moveCount = 0;
 totalMovement.forEach(function(totalSteps){
-  let moveCount = 0;
-   
-  console.log(`Movement # ${moveCount}: ${totalSteps} steps`);  
+  if (totalSteps === 1){
+    console.log(`Movement # ${moveCount}: ${totalSteps} step`);
+  }
+  else {
+    console.log(`Movement # ${moveCount}: ${totalSteps} steps`); 
+  }
+  moveCount++;
 })
+
+const testInput = "noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest";
+function decode(words){
+  const arrWord = words.split(" ");
+  let result = "";
+  for (let i= 0; i < arrWord.length; i++){
+    if (arrWord[i].length === 3){
+      arrWord[i] = " ";
+
+    }
+    else {
+      arrWord[i]= arrWord[i].charAt(arrWord[i].length-1).toUpperCase();           
+    }
+  }
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+  let codeWord = arrWord.reduce(reducer, "");
+  return codeWord;
+  
+}
+
+console.log(decode(testInput));
